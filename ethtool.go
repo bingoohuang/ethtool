@@ -53,12 +53,12 @@ const (
 	ETHTOOL_GSTRINGS = 0x0000001b
 	ETHTOOL_GSTATS   = 0x0000001d
 	// other CMDs from ethtool-copy.h of ethtool-3.5 package
-	ETHTOOL_GSET          = 0x00000001 /* Get settings. */
-	ETHTOOL_SSET          = 0x00000002 /* Set settings. */
-	ETHTOOL_GMSGLVL       = 0x00000007 /* Get driver message level */
-	ETHTOOL_SMSGLVL       = 0x00000008 /* Set driver msg level. */
+	ETHTOOL_GSET    = 0x00000001 /* Get settings. */
+	ETHTOOL_SSET    = 0x00000002 /* Set settings. */
+	ETHTOOL_GMSGLVL = 0x00000007 /* Get driver message level */
+	ETHTOOL_SMSGLVL = 0x00000008 /* Set driver msg level. */
 	/* Get link status for host, i.e. whether the interface *and* the
- * physical port (if there is one) are up (ethtool_value). */
+	 * physical port (if there is one) are up (ethtool_value). */
 	ETHTOOL_GLINK         = 0x0000000a
 	ETHTOOL_GMODULEINFO   = 0x00000042 /* Get plug-in module information */
 	ETHTOOL_GMODULEEEPROM = 0x00000043 /* Get plug-in module eeprom */
@@ -159,8 +159,8 @@ type ethtoolModInfo struct {
 }
 
 type ethtoolLink struct {
-	cmd        uint32
-	data       uint32
+	cmd  uint32
+	data uint32
 }
 
 type ethtoolPermAddr struct {
@@ -423,7 +423,7 @@ func (e *Ethtool) Change(intf string, config map[string]bool) error {
 	return e.ioctl(intf, uintptr(unsafe.Pointer(&features)))
 }
 
-// Get state of a link. 
+// Get state of a link.
 func (e *Ethtool) LinkState(intf string) (uint32, error) {
 	x := ethtoolLink{
 		cmd: ETHTOOL_GLINK,

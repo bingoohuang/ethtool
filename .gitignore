@@ -25,3 +25,4 @@ _testmain.go
 
 # Skip compiled example binary file
 /example/example
+.idea

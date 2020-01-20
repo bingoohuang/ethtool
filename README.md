@@ -9,13 +9,18 @@ The ethtool package aims to provide a library giving a simple access to the Linu
 
 go get command:
 
-    go get github.com/safchain/ethtool
+    go get github.com/bingoohuang/ethtool/cmd/...
 
 Testing
 
 In order to run te
 
     go test github.com/safchain/ethtool
+
+
+compile
+
+    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
 
 ## Examples ##
 
